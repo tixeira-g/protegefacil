@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Header } from "@/components/Header";
 import { Shield } from "@/components/Shield";
 import { StatusSeguranca } from "@/components/StatusSeguranca";
+import { ALERTAS } from "@/lib/alertas";
 
 const features = [
   {
@@ -58,7 +59,23 @@ export default function Home() {
     <main className="mx-auto flex min-h-screen w-full max-w-xl flex-col px-5 pb-16 pt-7">
       <Header />
 
-      <section className="mt-10 text-center">
+      <Link
+        href="/alertas"
+        className="mt-4 flex items-center gap-2.5 rounded-[13px] border border-[#f4d9a8] bg-[#fdf6e7] px-3.5 py-2.5 transition hover:bg-[#fbf0d8]"
+      >
+        <span className="relative flex h-2.5 w-2.5 flex-none">
+          <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-brand-amber opacity-70" />
+          <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-brand-amber" />
+        </span>
+        <span className="min-w-0 flex-1 truncate text-[12px] text-[#7a5a12]">
+          <b className="font-bold">Em alta:</b> {ALERTAS[0].titulo}
+        </span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="#a06d09" strokeWidth={2.2} className="h-4 w-4 flex-none">
+          <path d="M9 6l6 6-6 6" />
+        </svg>
+      </Link>
+
+      <section className="mt-8 text-center">
         <span className="mx-auto grid h-[78px] w-[78px] place-items-center rounded-[22px] bg-gradient-to-b from-navy-soft to-navy-deep shadow-mark">
           <Shield className="h-10 w-10" />
         </span>
@@ -79,6 +96,17 @@ export default function Home() {
             <path d="M21 21l-4.3-4.3" />
           </svg>
           Verificar uma mensagem agora
+        </Link>
+
+        <Link
+          href="/denunciar"
+          className="mt-2.5 inline-flex w-full items-center justify-center gap-2 rounded-[14px] bg-[#fdecec] px-5 py-3 text-[13px] font-bold text-[#c0322f] transition hover:bg-[#fbe0e0]"
+        >
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} className="h-[17px] w-[17px]">
+            <path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z" />
+            <path d="M12 9v4M12 17h.01" />
+          </svg>
+          Já caí num golpe — e agora?
         </Link>
       </section>
 
