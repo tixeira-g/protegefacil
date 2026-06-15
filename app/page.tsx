@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Header } from "@/components/Header";
 import { Shield } from "@/components/Shield";
+import { StatusSeguranca } from "@/components/StatusSeguranca";
 
 const features = [
   {
@@ -81,7 +82,11 @@ export default function Home() {
         </Link>
       </section>
 
-      <section className="mt-9 space-y-3">
+      <div className="mt-6">
+        <StatusSeguranca />
+      </div>
+
+      <section className="mt-6 space-y-3">
         {features.map((f, i) => (
           <Link
             key={i}
