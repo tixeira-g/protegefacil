@@ -4,7 +4,7 @@ import { Shield } from "./Shield";
 export function Header({ subtitle }: { subtitle?: string }) {
   return (
     <header className="flex items-center gap-3">
-      <Link href="/" className="flex items-center gap-3 group">
+      <Link href="/inicio" className="flex items-center gap-3 group">
         <span className="grid h-11 w-11 flex-none place-items-center rounded-[13px] bg-gradient-to-b from-navy-soft to-navy-deep shadow-mark transition group-hover:brightness-110">
           <Shield className="h-[23px] w-[23px]" />
         </span>

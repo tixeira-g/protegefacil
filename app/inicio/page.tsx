@@ -1,0 +1,134 @@
+import Link from "next/link";
+import { Header } from "@/components/Header";
+import { StatusSeguranca } from "@/components/StatusSeguranca";
+import { ALERTAS } from "@/lib/alertas";
+
+const features = [
+  {
+    href: "/verificador",
+    title: "Verificador de golpe",
+    desc: "Cole uma mensagem ou print suspeito. A IA analisa na hora e te diz o risco.",
+    cls: "bg-[#eaf2fd] text-brand-blue hover:border-[#bcd6f7]",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} className="h-5 w-5">
+        <circle cx="11" cy="11" r="7" />
+        <path d="M21 21l-4.3-4.3" />
+      </svg>
+    ),
+  },
+  {
+    href: "/alertas",
+    title: "Alertas de fraude",
+    desc: "Avisos em tempo real sobre golpes circulando contra você.",
+    cls: "bg-[#e8f6ec] text-brand-green hover:border-[#b6e1c2]",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} className="h-5 w-5">
+        <path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9" />
+        <path d="M13.7 21a2 2 0 0 1-3.4 0" />
+      </svg>
+    ),
+  },
+  {
+    href: "/juridico",
+    title: "Ajuda jurídica",
+    desc: "Escritórios parceiros e orientação com base no Art. 171 do CP.",
+    cls: "bg-[#f1ebf8] text-brand-purple hover:border-[#d4c2ec]",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} className="h-5 w-5">
+        <path d="M12 3v18M7 7h10M5 7l-2.5 6h5L5 7zm14 0l-2.5 6h5L19 7z" />
+      </svg>
+    ),
+  },
+  {
+    href: "/denunciar",
+    title: "Denunciar golpe",
+    desc: "Canais oficiais diretos para registrar a ocorrência.",
+    cls: "bg-[#fdecec] text-brand-red hover:border-[#f4bcbc]",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} className="h-5 w-5">
+        <path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z" />
+        <path d="M12 9v4M12 17h.01" />
+      </svg>
+    ),
+  },
+];
+
+export default function Inicio() {
+  return (
+    <main className="mx-auto flex min-h-screen w-full max-w-xl flex-col px-5 pb-16 pt-7">
+      <Header />
+
+      {/* banner de alerta */}
+      <Link
+        href="/alertas"
+        className="mt-4 flex items-center gap-2.5 rounded-[13px] border border-[#f4d9a8] bg-[#fdf6e7] px-3.5 py-2.5 transition hover:bg-[#fbf0d8]"
+      >
+        <span className="relative flex h-2.5 w-2.5 flex-none">
+          <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-brand-amber opacity-70" />
+          <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-brand-amber" />
+        </span>
+        <span className="min-w-0 flex-1 truncate text-[12px] text-[#7a5a12]">
+          <b className="font-bold">Em alta:</b> {ALERTAS[0].titulo}
+        </span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="#a06d09" strokeWidth={2.2} className="h-4 w-4 flex-none">
+          <path d="M9 6l6 6-6 6" />
+        </svg>
+      </Link>
+
+      {/* ações principais */}
+      <div className="mt-5 space-y-2.5">
+        <Link
+          href="/verificador"
+          className="inline-flex w-full items-center justify-center gap-2 rounded-[14px] bg-gradient-to-br from-navy-soft to-navy-deep px-5 py-4 font-display text-[15px] font-extrabold tracking-wide text-white transition hover:brightness-110 active:scale-[.99]"
+        >
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} className="h-[18px] w-[18px]">
+            <circle cx="11" cy="11" r="7" />
+            <path d="M21 21l-4.3-4.3" />
+          </svg>
+          Verificar uma mensagem
+        </Link>
+        <Link
+          href="/denunciar"
+          className="inline-flex w-full items-center justify-center gap-2 rounded-[14px] bg-[#fdecec] px-5 py-3 text-[13px] font-bold text-[#c0322f] transition hover:bg-[#fbe0e0]"
+        >
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} className="h-[17px] w-[17px]">
+            <path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z" />
+            <path d="M12 9v4M12 17h.01" />
+          </svg>
+          Já caí num golpe — e agora?
+        </Link>
+      </div>
+
+      {/* status de segurança */}
+      <div className="mt-5">
+        <StatusSeguranca />
+      </div>
+
+      {/* atalhos */}
+      <section className="mt-6 space-y-3">
+        {features.map((f, i) => (
+          <Link
+            key={i}
+            href={f.href}
+            className={`flex items-center gap-3 rounded-[15px] border border-transparent p-[14px] transition hover:translate-x-[2px] ${f.cls}`}
+          >
+            <span className="grid h-[38px] w-[38px] flex-none place-items-center rounded-[11px] bg-white/70">
+              {f.icon}
+            </span>
+            <span className="min-w-0 flex-1">
+              <span className="block text-[13.5px] font-bold tracking-wide text-ink">{f.title}</span>
+              <span className="text-[11.5px] leading-snug text-muted">{f.desc}</span>
+            </span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="#b7c0d0" strokeWidth={2.2} className="h-4 w-4 flex-none">
+              <path d="M9 6l6 6-6 6" />
+            </svg>
+          </Link>
+        ))}
+      </section>
+
+      <footer className="mt-auto pt-10 text-center text-[11px] leading-relaxed text-muted">
+        ProtegeFácil · Tecnologia + Direito = Segurança para todos
+      </footer>
+    </main>
+  );
+}
