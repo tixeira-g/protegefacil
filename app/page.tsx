@@ -108,6 +108,10 @@ export default function Home() {
 
       <footer className="mt-auto pt-10 text-center text-[11px] leading-relaxed text-muted">
         ProtegeFácil · Tecnologia + Direito = Segurança para todos
+        <br />
+        <Link href="/advogado" className="mt-1.5 inline-block font-semibold text-navy-soft hover:underline">
+          Sou advogado · acessar painel
+        </Link>
       </footer>
     </main>
   );
