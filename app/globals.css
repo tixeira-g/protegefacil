@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+  --font-inter: "Inter", system-ui, -apple-system, sans-serif;
+  --font-jakarta: "Plus Jakarta Sans", var(--font-inter);
+}
+
+html,
+body {
+  background:
+    radial-gradient(900px 520px at 82% -10%, #dde8fb, transparent 60%),
+    #eef2f8;
+  color: #16203a;
+  -webkit-font-smoothing: antialiased;
+}
+
+@keyframes spin360 {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.animate-spin360 {
+  animation: spin360 1s linear infinite;
+}
