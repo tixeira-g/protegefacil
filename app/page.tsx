@@ -16,7 +16,7 @@ const features = [
     ),
   },
   {
-    href: "/verificador",
+    href: "/alertas",
     title: "Alertas de fraude",
     desc: "Avisos em tempo real sobre golpes circulando contra você.",
     cls: "bg-[#e8f6ec] text-brand-green hover:border-[#b6e1c2]",
@@ -39,7 +39,7 @@ const features = [
     ),
   },
   {
-    href: "/juridico",
+    href: "/denunciar",
     title: "Denunciar golpe",
     desc: "Registre a ocorrência e seja encaminhado para apoio especializado.",
     cls: "bg-[#fdecec] text-brand-red hover:border-[#f4bcbc]",
